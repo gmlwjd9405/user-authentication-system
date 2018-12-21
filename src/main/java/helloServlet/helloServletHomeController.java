@@ -1,12 +1,12 @@
-package controller;
+package helloServlet;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
-    @GetMapping(value = "/")
+public class helloServletHomeController {
+    @GetMapping(value = "/helloServlet")
     public String home() {
-        return "index";
+        return "helloServlet/login";
     }
 }
