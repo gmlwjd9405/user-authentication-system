@@ -11,6 +11,6 @@
     <title>$Title$</title>
 </head>
 <body>
-Welcome Home
+This is a homepage for shopping
 </body>
 </html>
