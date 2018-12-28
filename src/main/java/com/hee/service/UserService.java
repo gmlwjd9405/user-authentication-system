@@ -1,4 +1,4 @@
-package service;
+package com.hee.service;
 
 public class UserService {
 
