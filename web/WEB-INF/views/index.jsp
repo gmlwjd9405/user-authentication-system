@@ -13,5 +13,7 @@
 <body>
     This is a homepage for shopping
     <p><a href="${pageContext.request.contextPath}/offers"> Show current Offers</a></p>
+    <%--<p><a href="${pageContext.request.contextPath}/createOffer"> Add a new offer</a></p>--%>
+    <p> <a href="/createOffer"> Add a new Offer</a></p>
 </body>
 </html>
