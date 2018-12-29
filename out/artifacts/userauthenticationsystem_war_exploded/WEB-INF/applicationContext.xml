@@ -5,10 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--property file의 위치 지정-->
-    <context:property-placeholder location="classpath:props/jdbc.properties"/>
+    <!--<context:property-placeholder location="classpath:props/jdbc.properties"/>-->
+    <context:property-placeholder location="/WEB-INF/props/jdbc.properties"/>
     <!--등록된 빈 중에서 @Transactional이 붙은 클래스/인터페이스/메소드를 찾아 트랜잭션 어드바이스를 적용-->
     <tx:annotation-driven/>
-    <context:annotation-config/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>

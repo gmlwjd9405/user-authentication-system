@@ -11,6 +11,8 @@
     <title>$Title$</title>
 </head>
 <body>
-This is a homepage for shopping
+    This is a homepage for shopping
+    <p><a href="${pageContext.request.contextPath}/offers"> Show current Offers</a></p>
+    <p> <a href="${pageContext.request.contextPath}/createOffer"> Add a new offer</a></p>
 </body>
 </html>
