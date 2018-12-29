@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -35,9 +36,10 @@ public class OfferController {
     }
 
     @PostMapping("/createOffer")
-    String doCreate(Model model, Offer offer, BindingResult result) {
+    String doCreate(Model model, @Valid Offer offer, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println("===Form data does not validated");
+
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError error : errors) {
                 System.out.println(error.getDefaultMessage());
@@ -45,7 +47,6 @@ public class OfferController {
             return "createOffer";
         }
         offerService.insert(offer);
-
         return "offerCreated";
     }
 
