@@ -6,40 +6,46 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="springform" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 </head>
 <body>
-<form method="post" action="/createOffer">
+<springform:form method="post" action="/createOffer" modelAttribute="offer">
     <table class="formTable">
         <tr>
-            <td class="label">Name:</td>
+            <td class="label">Name: </td>
             <td>
-                <input class="control" type="text" name="name"/>
+                <springform:input class="control" type="text" path="name"/>
+                <br/>
+                <springform:errors class="error" path="name"/>
             </td>
         </tr>
         <tr>
-            <td class="label">Email:</td>
+            <td class="label">Email: </td>
             <td>
-                <input class="control" type="text" name="email"/>
+                <springform:input class="control" type="text" path="email"/>
+                <br/>
+                <springform:errors class="error" path="email"/>
             </td>
         </tr>
         <tr>
-            <td class="label">Text:</td>
+            <td class="label">Text: </td>
             <td>
-                <textarea class="control" name="text" rows="10" cols="10"></textarea>
+                <springform:textarea class="control" path="text" rows="10" cols="10"/>
+                <br/>
+                <springform:errors class="error" path="text"/>
             </td>
         </tr>
         <tr>
-            <td class="label"></td>
+            <td class="label"> </td>
             <td>
-                <input class="control" type="submit" value="new Offer"/>
+                <input class="control" type="submit" value="New Offer"/>
             </td>
         </tr>
     </table>
-</form>
+</springform:form>
 </body>
 </html>
