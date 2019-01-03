@@ -13,6 +13,13 @@
 </head>
 <body>
 <h3>Custom Login with Username and Password</h3>
+<!-- For logout  -->
+<c:if test="${not empty logoutSuccessMsg}">
+    <div style="color: #0000ff;">
+        <h3> ${logoutSuccessMsg} </h3>
+    </div>
+</c:if>
+
 <form name='f' action="<c:url value="/login"/>" method="post">
     <!-- For failed user authentication  -->
     <c:if test="${not empty errorMsg}">
