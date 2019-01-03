@@ -37,6 +37,7 @@ public class OfferController {
 
     @PostMapping("/createOffer")
     String doCreate(Model model, @Valid Offer offer, BindingResult result) {
+
         if (result.hasErrors()) {
             System.out.println("===Form data does not validated");
 
