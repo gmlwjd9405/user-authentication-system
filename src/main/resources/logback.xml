@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>.%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="dailyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/Users/heejeong/Desktop/rest-demo.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <FileNamePattern>rest-demo.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="minuteRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover every minute -->
+            <FileNamePattern>/Users/heejeong/Desktop/rest-demo-minute.%d{yyyy-MM-dd_HH-mm}.log</FileNamePattern>
+            <!-- keep 30 minutes' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</Pattern>
+        </encoder>
+    </appender>
+
+    <!--appender를 상속받지 않겠다.-->
+    <logger name="com.hee" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="dailyRollingFileAppender"/>
+        <appender-ref ref="minuteRollingFileAppender"/>
+    </logger>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="consoleAppender" />
+    </root>
+</configuration>
